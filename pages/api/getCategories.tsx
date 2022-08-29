@@ -1,9 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string
+  categories: [Category]
 }
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'John Doe' })
-
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  // const categories = await sanityClient.fetch(query)
 }
