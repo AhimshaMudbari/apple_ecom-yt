@@ -1,11 +1,17 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/Header';
 import HeadlessUi from '../components/HeadlessUi';
 import Landing from '../components/Landing';
 import styles from '../styles/Home.module.css';
+import { fetchCategories } from '../utils/fetchCategories';
 
-export default function Home() {
+interface Props {
+  categories: [Category]
+}
+export default function Home({ categories }) {
+
   return (
     <div>
       <Head>
@@ -21,9 +27,18 @@ export default function Home() {
       <section className='relative z-40 bg-[#011121] -mt-[100vh] min-h-screen '>
         <div className='space-y-10 py-14'>
           <h1 className='text-4xl font-medium tracking-wide text-center text-gray-300'>Products</h1>
-          <HeadlessUi />
+          <HeadlessUi categories={categories} />
         </div>
       </section>
     </div>
   );
+}
+
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const categories = await fetchCategories()
+
+  return {
+    props: { categories },
+  }
 }
