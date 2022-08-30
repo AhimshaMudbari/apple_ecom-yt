@@ -1,8 +1,11 @@
 import { Tab } from '@headlessui/react'
 import { GetServerSideProps } from 'next'
 import React from 'react'
+import { fetchCategories } from '../utils/fetchCategories'
 
-const HeadlessUi = () => {
+const HeadlessUi = ({ categories }) => {
+    console.log(categories);
+
     return (
         <Tab.Group>
             <Tab.List className='flex justify-center space-x-5'>
@@ -32,10 +35,4 @@ const HeadlessUi = () => {
 }
 
 export default HeadlessUi
-export const getServerSideProps: GetServerSideProps = async () => {
-    //    const categories = await fetchCategories()
-    return {
-        props: {},
-    }
-}
 
