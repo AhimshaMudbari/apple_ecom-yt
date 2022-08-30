@@ -9,5 +9,5 @@ export const config = {
   token: process.env.SANITY_API_TOKEN,
 };
 
-export const saniyClient = createClient(config);
-export const urlFor = createImageUrlBuilder(config).image(source);
+export const sanityClient = createClient(config);
+export const urlFor = (source) => createImageUrlBuilder(config).image(source);
