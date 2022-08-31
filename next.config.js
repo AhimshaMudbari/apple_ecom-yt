@@ -8,6 +8,6 @@ module.exports = nextConfig;
 module.exports = {
   distDir: 'build',
   images: {
-    domains: ['pngimg.com'],
+    domains: ['pngimg.com', 'cdn.sanity.io'],
   },
 };
