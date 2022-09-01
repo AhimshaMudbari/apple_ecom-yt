@@ -13,8 +13,6 @@ interface Props {
   products: [Products]
 }
 export default function Home({ categories, products }) {
-  console.log(products);
-
   return (
     <div>
       <Head>
